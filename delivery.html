@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delivery HN | Servicio de Delivery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+    color:#1e293b;
+}
+
+header{
+    background:linear-gradient(135deg,#0f766e,#059669);
+    color:#fff;
+    padding:90px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+header p{
+    max-width:700px;
+    margin:auto;
+    font-size:1.2rem;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    background:#fff;
+    color:#059669;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+.titulo{
+    text-align:center;
+    font-size:2.3rem;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#059669;
+    margin-bottom:15px;
+}
+
+.proceso{
+    background:#ecfdf5;
+}
+
+.pasos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.paso{
+    text-align:center;
+}
+
+.numero{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#059669;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    margin:0 auto 20px;
+}
+
+.cta{
+    background:#065f46;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.cta h2{
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+footer{
+    background:#0f172a;
+    color:#cbd5e1;
+    text-align:center;
+    padding:25px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🚚 Delivery HN</h1>
+
+<p>
+Recogemos y entregamos tus pedidos de forma rápida, segura y confiable. Nos encargamos del envío para que tú puedas concentrarte en lo más importante.
+</p>
+
+<a class="btn" href="https://wa.me/50498886488">
+Solicitar un Delivery
+</a>
+
+</header>
+
+<section>
+
+<h2 class="titulo">¿Qué podemos transportar?</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🍔 Comida</h3>
+<p>Entregamos pedidos de restaurantes, cafeterías y comida rápida.</p>
+</div>
+
+<div class="card">
+<h3>🛒 Supermercado</h3>
+<p>Compramos y entregamos productos de supermercados y tiendas.</p>
+</div>
+
+<div class="card">
+<h3>💊 Medicamentos</h3>
+<p>Recogemos recetas y entregamos medicamentos con rapidez.</p>
+</div>
+
+<div class="card">
+<h3>📦 Paquetería</h3>
+<p>Envío de documentos, paquetes y encomiendas.</p>
+</div>
+
+<div class="card">
+<h3>🎁 Regalos</h3>
+<p>Entrega de regalos, flores y detalles especiales.</p>
+</div>
+
+<div class="card">
+<h3>🏪 Compras</h3>
+<p>Realizamos compras en cualquier comercio de la ciudad.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="proceso">
+
+<h2 class="titulo">¿Cómo funciona?</h2>
+
+<div class="pasos">
+
+<div class="paso">
+<div class="numero">1</div>
+<h3>Escríbenos</h3>
+<p>Envíanos tu ubicación y el detalle del pedido por WhatsApp.</p>
+</div>
+
+<div class="paso">
+<div class="numero">2</div>
+<h3>Recogemos</h3>
+<p>Un repartidor recoge tu pedido en pocos minutos.</p>
+</div>
+
+<div class="paso">
+<div class="numero">3</div>
+<h3>Entregamos</h3>
+<p>Llevamos el pedido hasta la dirección indicada de forma segura.</p>
+</div>
+
+<div class="paso">
+<div class="numero">4</div>
+<h3>Confirmación</h3>
+<p>Recibes la confirmación cuando la entrega ha sido realizada.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="titulo">¿Por qué elegirnos?</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>⚡ Entregas rápidas</h3>
+<p>Reducimos los tiempos de espera para tus clientes.</p>
+</div>
+
+<div class="card">
+<h3>🔒 Seguridad</h3>
+<p>Cuidamos cada envío desde la recogida hasta la entrega.</p>
+</div>
+
+<div class="card">
+<h3>📍 Seguimiento</h3>
+<p>Mantente informado sobre el estado de tu pedido.</p>
+</div>
+
+<div class="card">
+<h3>💬 Atención personalizada</h3>
+<p>Siempre tendrás un canal directo para resolver cualquier duda.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>¿Necesitas un envío hoy?</h2>
+
+<p>Contáctanos y uno de nuestros repartidores estará listo para ayudarte.</p>
+
+<a class="btn" href="https://wa.me/50498886488">
+Pedir Delivery Ahora
+</a>
+
+</section>
+
+<footer>
+
+<strong>Delivery HN</strong><br>
+Amor • Servicio • Cuidado
+
+</footer>
+
+</body>
+</html>
