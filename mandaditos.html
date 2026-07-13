@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mercadito La Economía</title>
+
+    <style>/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f8f8;
+    color: #333;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+img {
+    width: 100%;
+    display: block;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 8%;
+
+    background: white;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+}
+
+
+.logo img {
+
+    width: 80px;
+
+}
+
+
+nav {
+
+    display: flex;
+    gap: 25px;
+
+}
+
+
+nav a {
+
+    text-decoration: none;
+
+    color: #333;
+
+    font-weight: bold;
+
+}
+
+
+nav a:hover {
+
+    color: #28a745;
+
+}
+
+
+
+/* =========================
+   SECCIÓN PRINCIPAL
+========================= */
+
+
+.hero {
+
+    min-height: 70vh;
+
+    display: grid;
+
+    place-items: center;
+
+    text-align: center;
+
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ),
+
+    url("../images/banner.jpg");
+
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: white;
+
+}
+
+
+
+.hero-text {
+
+    max-width: 600px;
+
+    padding: 20px;
+
+}
+
+
+
+.hero h1 {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.hero p {
+
+    font-size: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+button {
+
+    background: #28a745;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+
+button:hover {
+
+    background:#218838;
+
+}
+
+
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+
+#productos {
+
+    padding:50px 8%;
+
+}
+
+
+#productos h2 {
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+    font-size:32px;
+
+}
+
+
+
+.productos-grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(220px,1fr));
+
+
+    gap:25px;
+
+
+}
+
+
+
+
+.producto {
+
+
+    background:white;
+
+
+    border-radius:15px;
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+    0 5px 15px rgba(0,0,0,0.1);
+
+
+    padding-bottom:20px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+.producto img {
+
+
+    height:180px;
+
+    object-fit:cover;
+
+
+}
+
+
+
+.producto h3 {
+
+
+    margin:15px 0 10px;
+
+
+}
+
+
+
+.producto p {
+
+
+    font-size:20px;
+
+    color:#28a745;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+/* =========================
+   PEDIDO
+========================= */
+
+
+.pedido {
+
+
+    background:white;
+
+
+    padding:40px 8%;
+
+
+    text-align:center;
+
+
+}
+
+
+
+#listaPedido {
+
+
+    margin:20px auto;
+
+
+    max-width:500px;
+
+
+    min-height:80px;
+
+
+    border:1px solid #ddd;
+
+
+    padding:20px;
+
+
+    border-radius:10px;
+
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+footer {
+
+
+    background:#222;
+
+
+    color:white;
+
+
+    text-align:center;
+
+
+    padding:30px;
+
+
+}
+
+
+
+/* =========================
+   DISEÑO PARA CELULARES
+========================= */
+
+
+@media(max-width:768px){
+
+
+.header {
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+nav {
+
+    gap:15px;
+
+}
+
+
+
+.hero h1 {
+
+    font-size:32px;
+
+}
+
+
+
+.hero p {
+
+    font-size:18px;
+
+}
+
+
+}
+
+:root {
+
+    --verde:#2e7d32;
+    --verde-claro:#4caf50;
+    --amarillo:#ffc107;
+    --oscuro:#263238;
+    --gris:#f5f5f5;
+
+}
+
+
+
+/* MARCA */
+
+.marca {
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+
+.marca img {
+
+    width:70px;
+
+}
+
+
+
+.marca h2 {
+
+    color:var(--verde);
+
+    font-size:22px;
+
+}
+
+
+
+.marca span {
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+
+
+/* HERO MEJORADO */
+
+
+.hero {
+
+    background:
+
+    linear-gradient(
+    rgba(46,125,50,.75),
+    rgba(0,0,0,.5)
+    ),
+
+    url("../images/banner.jpg");
+
+}
+
+
+
+.hero button {
+
+    background:var(--amarillo);
+
+    color:#333;
+
+    font-weight:bold;
+
+}
+
+
+
+.hero button:hover {
+
+    background:#ffb300;
+
+}
+
+
+
+/* BENEFICIOS */
+
+
+.beneficios {
+
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+
+    gap:20px;
+
+
+    padding:40px 8%;
+
+
+    background:white;
+
+
+}
+
+
+
+.beneficios div {
+
+
+    text-align:center;
+
+
+    padding:25px;
+
+
+    border-radius:15px;
+
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.beneficios h3 {
+
+    color:var(--verde);
+
+    margin-bottom:10px;
+
+}
+
+/* CATEGORÍAS */
+
+.categorias {
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.categoria {
+
+
+    background:white;
+
+    color:#333;
+
+
+    border:2px solid var(--verde);
+
+
+    padding:10px 20px;
+
+
+    border-radius:25px;
+
+
+}
+
+
+
+.categoria:hover,
+.categoria.active {
+
+
+    background:var(--verde);
+
+    color:white;
+
+
+}
+
+
+
+/* PRODUCTOS GENERADOS */
+
+.producto button {
+
+    margin-top:15px;
+
+}
+
+/* CARRITO */
+
+#listaPedido p {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+#listaPedido button {
+
+    background:#e53935;
+
+    padding:5px 10px;
+
+    font-size:14px;
+
+}
+
+
+
+.total {
+
+    margin:25px;
+
+}
+
+
+#totalPedido {
+
+    color:var(--verde);
+
+}</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="marca">
+
+    <img src="images/logo.png" alt="Mercadito La Esquina">
+
+    <div>
+        <h2>
+            Mercadito La Esquina
+        </h2>
+
+        <span>
+            Todo lo que necesitas, cerca de ti
+        </span>
+    </div>
+
+</div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+</header>
+
+
+<section id="inicio" class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+Mercadito La Esquina
+</h1>
+
+<p>
+Abarrotes, bebidas, productos para el hogar y mucho más.
+</p>
+
+
+        <button>
+            Ver productos
+        </button>
+
+    </div>
+
+</section>
+
+    <section class="beneficios">
+
+<div>
+<h3>
+🛒 Variedad
+</h3>
+<p>
+Miles de productos para tu hogar.
+</p>
+</div>
+
+
+<div>
+<h3>
+🚚 Pedidos rápidos
+</h3>
+<p>
+Haz tu pedido desde tu celular.
+</p>
+</div>
+
+
+<div>
+<h3>
+⭐ Calidad
+</h3>
+<p>
+Productos seleccionados para ti.
+</p>
+</div>
+
+
+</section>
+
+<section id="productos">
+
+<h2>
+Nuestros productos
+</h2>
+
+
+<div class="categorias">
+
+<button class="categoria active" data-categoria="todos">
+Todos
+</button>
+
+<button class="categoria" data-categoria="abarrotes">
+Abarrotes
+</button>
+
+<button class="categoria" data-categoria="bebidas">
+Bebidas
+</button>
+
+<button class="categoria" data-categoria="limpieza">
+Limpieza
+</button>
+
+<button class="categoria" data-categoria="snacks">
+Snacks
+</button>
+
+
+</div>
+
+
+
+<div class="productos-grid" id="contenedorProductos">
+
+</div>
+
+
+</section>
+
+
+
+<section class="pedido">
+
+<h2>
+Tu pedido
+</h2>
+
+
+<div id="listaPedido">
+
+<p>
+No tienes productos seleccionados
+</p>
+
+</div>
+
+
+<div class="total">
+
+<h3>
+Total:
+<span id="totalPedido">
+L.0
+</span>
+</h3>
+
+</div>
+
+
+<button id="enviarPedido">
+Enviar pedido por WhatsApp
+</button>
+
+
+</section>
+
+
+
+<footer id="contacto">
+
+<p>
+Mercadito La Economía
+</p>
+
+<p>
+Teléfono: 9999-9999
+</p>
+
+</footer>
+
+
+
+<script>
+    // =====================================
+// MERCADITO LA ESQUINA - SISTEMA ACTUALIZADO
+// =====================================
+
+const productos = [
+    { nombre: "Arroz Premium", precio: 25, categoria: "abarrotes", imagen: "images/producto4.webp" },
+    { nombre: "Refresco Cola", precio: 15, categoria: "bebidas", imagen: "images/producto4.webp" },
+    { nombre: "Jabón para ropa", precio: 35, categoria: "limpieza", imagen: "images/producto4.webp" },
+    { nombre: "Galletas", precio: 10, categoria: "snacks", imagen: "images/producto4.webp" }
+];
+
+let pedido = [];
+
+// Elementos DOM
+const contenedorProductos = document.getElementById("contenedorProductos");
+const listaPedido = document.getElementById("listaPedido");
+const totalPedido = document.getElementById("totalPedido");
+const botonesCategoria = document.querySelectorAll(".categoria");
+const btnEnviar = document.getElementById("enviarPedido");
+
+// MOSTRAR PRODUCTOS
+function mostrarProductos(lista) {
+    contenedorProductos.innerHTML = "";
+    lista.forEach(producto => {
+        const article = document.createElement("article");
+        article.className = "producto";
+        article.innerHTML = `
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p>L.${producto.precio}</p>
+        `;
+        const btn = document.createElement("button");
+        btn.className = "btn-pedir";
+        btn.textContent = "Pedir";
+        btn.onclick = () => agregarAlPedido(producto);
+        
+        article.appendChild(btn);
+        contenedorProductos.appendChild(article);
+    });
+}
+
+// AGREGAR AL PEDIDO
+function agregarAlPedido(producto) {
+    pedido.push(producto);
+    mostrarPedido();
+}
+
+// ELIMINAR DEL PEDIDO
+window.eliminarProducto = function(index) {
+    pedido.splice(index, 1);
+    mostrarPedido();
+};
+
+// MOSTRAR PEDIDO
+function mostrarPedido() {
+    listaPedido.innerHTML = "";
+    let total = 0;
+
+    if (pedido.length === 0) {
+        listaPedido.innerHTML = "<p>No tienes productos seleccionados</p>";
+    } else {
+        pedido.forEach((producto, index) => {
+            total += producto.precio;
+            listaPedido.innerHTML += `
+                <p>
+                    ${producto.nombre} - L.${producto.precio}
+                    <button onclick="eliminarProducto(${index})">X</button>
+                </p>
+            `;
+        });
+    }
+    totalPedido.textContent = `L.${total}`;
+}
+
+// ENVIAR POR WHATSAPP
+function enviarPorWhatsApp() {
+    if (pedido.length === 0) return alert("Tu pedido está vacío");
+    
+    let mensaje = "Hola, quiero realizar este pedido:%0A";
+    let total = 0;
+    pedido.forEach(p => {
+        mensaje += `- ${p.nombre}: L.${p.precio}%0A`;
+        total += p.precio;
+    });
+    mensaje += `%0ATotal: L.${total}`;
+    
+    window.open(`https://wa.me/50498886488?text=${mensaje}`, "_blank");
+}
+
+// EVENTOS
+botonesCategoria.forEach(boton => {
+    boton.addEventListener("click", () => {
+        botonesCategoria.forEach(btn => btn.classList.remove("active"));
+        boton.classList.add("active");
+        const categoria = boton.dataset.categoria;
+        const filtrados = categoria === "todos" ? productos : productos.filter(p => p.categoria === categoria);
+        mostrarProductos(filtrados);
+    });
+});
+
+if (btnEnviar) btnEnviar.addEventListener("click", enviarPorWhatsApp);
+
+// INICIALIZACIÓN
+mostrarProductos(productos);
+
+</script>
+
+</body>
+
+</html>
