@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Comedor Doña Ana | Comida Casera</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--verde:#2e7d32;
+--verde2:#1b5e20;
+--amarillo:#ffca28;
+--blanco:#ffffff;
+--gris:#f5f5f5;
+--texto:#333;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+color:var(--texto);
+background:white;
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(10px);
+z-index:1000;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+header .container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none;
+}
+
+.logo img{
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:50%;
+}
+
+.logo span{
+font-size:1.3rem;
+font-weight:700;
+color:var(--verde);
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+font-weight:600;
+color:var(--verde);
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--amarillo);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+background:
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding-top:120px;
+}
+
+.hero-content{
+max-width:700px;
+color:white;
+}
+
+.badge{
+display:inline-block;
+padding:10px 20px;
+background:var(--amarillo);
+color:black;
+font-weight:700;
+border-radius:30px;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:3.5rem;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.1rem;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 30px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+display:inline-flex;
+align-items:center;
+gap:10px;
+transition:.3s;
+}
+
+.btn-primary{
+background:var(--amarillo);
+color:black;
+}
+
+.btn-primary:hover{
+transform:translateY(-4px);
+}
+
+.btn-whatsapp{
+background:#25d366;
+color:white;
+}
+
+.btn-whatsapp:hover{
+transform:translateY(-4px);
+}
+
+/* TITULOS */
+
+section{
+padding:90px 0;
+}
+
+.section-title{
+text-align:center;
+font-size:2.5rem;
+color:var(--verde);
+margin-bottom:50px;
+}
+
+/* PLATILLO DEL DIA */
+
+.featured{
+background:var(--gris);
+}
+
+.featured-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.featured img{
+width:100%;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.price{
+font-size:2rem;
+font-weight:800;
+color:var(--verde);
+margin-top:20px;
+}
+
+/* SOBRE NOSOTROS */
+
+.about{
+text-align:center;
+}
+
+.about p{
+max-width:900px;
+margin:auto;
+line-height:1.9;
+font-size:1.05rem;
+}
+
+/* MENU */
+
+.menu{
+background:var(--gris);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card-content h3{
+margin-bottom:10px;
+}
+
+.card-price{
+color:var(--verde);
+font-size:1.5rem;
+font-weight:700;
+margin-top:15px;
+}
+
+.gallery{
+background:white;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:20px;
+transition:.4s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+/* TESTIMONIOS */
+
+.testimonials{
+background:var(--gris);
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.testimonial{
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.testimonial img{
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+}
+
+.stars{
+color:#ffc107;
+font-size:20px;
+margin-bottom:15px;
+}
+
+/* CONTACTO */
+
+.contact{
+background:var(--verde);
+color:white;
+}
+
+.contact h2{
+color:white;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+text-align:center;
+}
+
+.contact-box{
+padding:30px;
+}
+
+.contact-box i{
+font-size:40px;
+color:var(--amarillo);
+margin-bottom:15px;
+}
+
+/* MAPA */
+
+.map iframe{
+width:100%;
+height:400px;
+border:0;
+border-radius:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:#222;
+color:white;
+padding:50px 20px;
+text-align:center;
+}
+
+footer img{
+width:80px;
+height:80px;
+border-radius:50%;
+margin-bottom:15px;
+}
+
+.social{
+margin-top:20px;
+}
+
+.social a{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:45px;
+height:45px;
+border-radius:50%;
+background:rgba(255,255,255,.15);
+color:white;
+text-decoration:none;
+margin:0 5px;
+transition:.3s;
+}
+
+.social a:hover{
+background:var(--amarillo);
+color:#000;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+right:25px;
+bottom:25px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#25D366;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+z-index:999;
+}
+
+/* ANIMACIONES */
+
+.hidden{
+opacity:0;
+transform:translateY(40px);
+transition:.8s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+nav{
+display:none;
+}
+
+.hero h1{
+font-size:2.4rem;
+}
+
+.featured-content{
+grid-template-columns:1fr;
+}
+
+.cards,
+.gallery-grid,
+.testimonial-grid,
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<a href="#" class="logo">
+
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300">
+
+<span>Comedor Doña Ana</span>
+
+</a>
+
+<nav>
+
+<ul>
+
+<li><a href="#inicio">Inicio</a></li>
+
+<li><a href="#menu">Menú</a></li>
+
+<li><a href="#galeria">Galería</a></li>
+
+<li><a href="#contacto">Contacto</a></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero" id="inicio">
+
+<div class="container">
+
+<div class="hero-content">
+
+<span class="badge">
+🍽️ Comida Casera Tradicional
+</span>
+
+<h1>
+El auténtico sabor del hogar en cada platillo
+</h1>
+
+<p>
+Disfruta de recetas tradicionales preparadas con ingredientes frescos, porciones abundantes y el cariño de la cocina casera.
+</p>
+
+<div class="buttons">
+
+<a href="#menu" class="btn btn-primary">
+Ver Menú
+</a>
+
+<a href="https://wa.me/50400000000" class="btn btn-whatsapp">
+
+<i class="fab fa-whatsapp"></i>
+
+Pedir Ahora
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="featured">
+
+<div class="container">
+
+<h2 class="section-title">
+🍛 Platillo del Día
+</h2>
+
+<div class="featured-content">
+
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200">
+
+<div>
+
+<h3>Pollo Frito con Tajadas</h3>
+
+<p>
+Crujiente pollo frito acompañado de tajadas de plátano verde, ensalada fresca, arroz, frijoles y bebida natural.
+</p>
+
+<div class="price">
+L.120
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="about">
+
+<div class="container">
+
+<h2 class="section-title">
+Sobre Nosotros
+</h2>
+
+<p>
+En Comedor Doña Ana cocinamos todos los días con ingredientes frescos para ofrecer comida casera con el auténtico sabor de hogar. Nuestro compromiso es brindar calidad, excelente atención y precios accesibles para toda la familia.
+</p>
+
+</div>
+
+</section>
+
+<section class="menu" id="menu">
+
+<div class="container">
+
+<h2 class="section-title">
+Nuestro Menú
+</h2>
+
+<div class="cards">
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1604908176997-431f9c0b4b89?w=800">
+
+<div class="card-content">
+
+<h3>Pollo Especial</h3>
+
+<p>
+Pollo preparado al gusto acompañado de arroz, ensalada y tortillas.
+</p>
+
+<div class="card-price">
+L.100
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800">
+
+<div class="card-content">
+
+<h3>Ensalada Fresca</h3>
+
+<p>
+Una opción saludable con ingredientes frescos del día.
+</p>
+
+<div class="card-price">
+L.70
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800">
+
+<div class="card-content">
+
+<h3>Especial de la Casa</h3>
+
+<p>
+Nuestro platillo recomendado preparado con mucho sabor.
+</p>
+
+<div class="card-price">
+L.130
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="gallery" id="galeria">
+
+<div class="container">
+
+<h2 class="section-title">
+Galería de Platillos
+</h2>
+
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900">
+
+<img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=900">
+
+<img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?w=900">
+
+<img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=900">
+
+<img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=900">
+
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=900">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="testimonials">
+
+<div class="container">
+
+<h2 class="section-title">
+Opiniones de Clientes
+</h2>
+
+
+<div class="testimonial-grid">
+
+
+<div class="testimonial">
+
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"La comida tiene ese sabor casero que recuerda a la comida de mamá."
+</p>
+
+<h4>
+María López
+</h4>
+
+</div>
+
+
+
+<div class="testimonial">
+
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Excelente atención, buenos precios y porciones muy completas."
+</p>
+
+<h4>
+Carlos Hernández
+</h4>
+
+</div>
+
+
+
+<div class="testimonial">
+
+<img src="https://randomuser.me/api/portraits/women/65.jpg">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Siempre pido el platillo del día, nunca decepciona."
+</p>
+
+<h4>
+Ana Martínez
+</h4>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="contact" id="contacto">
+
+<div class="container">
+
+<h2 class="section-title">
+Contáctanos
+</h2>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-box">
+
+<i class="fas fa-location-dot"></i>
+
+<h3>
+Ubicación
+</h3>
+
+<p>
+Tu dirección aquí
+</p>
+
+</div>
+
+
+
+<div class="contact-box">
+
+<i class="fas fa-clock"></i>
+
+<h3>
+Horario
+</h3>
+
+<p>
+Lunes a Domingo<br>
+7:00 AM - 7:00 PM
+</p>
+
+</div>
+
+
+
+<div class="contact-box">
+
+<i class="fab fa-whatsapp"></i>
+
+<h3>
+WhatsApp
+</h3>
+
+<p>
++504 0000-0000
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+<section class="map">
+
+<div class="container">
+
+<h2 class="section-title">
+Encuéntranos
+</h2>
+
+<iframe 
+src="https://www.google.com/maps/embed?pb="
+loading="lazy">
+</iframe>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300">
+
+<h3>
+Comedor Doña Ana
+</h3>
+
+<p>
+Comida casera preparada con amor y tradición.
+</p>
+
+
+<div class="social">
+
+<a href="#">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-tiktok"></i>
+</a>
+
+</div>
+
+
+<small id="copyright">
+© 2026 Todos los derechos reservados.
+</small>
+
+
+</footer>
+
+
+
+<a class="whatsapp"
+href="https://wa.me/50400000000">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+
+
+<script>
+
+
+// Animación al aparecer elementos
+
+const elementos = document.querySelectorAll(
+"section,.card,.testimonial,.gallery-grid img"
+);
+
+
+const observer = new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+{
+threshold:0.15
+});
+
+
+elementos.forEach(elemento=>{
+
+elemento.classList.add("hidden");
+
+observer.observe(elemento);
+
+});
+
+
+
+// Año automático
+
+const año=document.getElementById("copyright");
+
+
+if(año){
+
+año.innerHTML=
+`© ${new Date().getFullYear()} Todos los derechos reservados.`;
+
+}
+
+
+
+// Cambiar header al hacer scroll
+
+window.addEventListener("scroll",()=>{
+
+const header=document.querySelector("header");
+
+
+if(window.scrollY>50){
+
+header.style.boxShadow=
+"0 10px 30px rgba(0,0,0,.15)";
+
+}else{
+
+header.style.boxShadow=
+"0 5px 20px rgba(0,0,0,.08)";
+
+}
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
