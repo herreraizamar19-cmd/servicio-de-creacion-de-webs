@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transporte & Delivery</title>
+
+    <meta name="description" content="Solicita un taxi o un servicio de delivery de forma rápida y segura desde tu celular.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <style>
+    /* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+    color:#222;
+    line-height:1.6;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffc107,#ff9800);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:30px 8%;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:50px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#fff;
+}
+
+.logo h2{
+    color:#fff;
+    font-size:1.3rem;
+}
+
+.btn-whatsapp{
+    background:#25D366;
+    color:white;
+    padding:12px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-whatsapp:hover{
+    transform:translateY(-3px);
+}
+
+/* ===========================
+   HERO CONTENT
+=========================== */
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+}
+
+.hero-text h1{
+    font-size:3.3rem;
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.hero-text span{
+    display:block;
+}
+
+.hero-text p{
+    font-size:1.2rem;
+    color:#fff;
+    opacity:.95;
+}
+
+.hero-image{
+    text-align:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:450px;
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,.25));
+}
+
+/* ===========================
+   SERVICIOS
+=========================== */
+
+.services{
+    padding:90px 8%;
+    text-align:center;
+}
+
+.services h2{
+    font-size:2.4rem;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    padding:45px 30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card i{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.taxi i{
+    color:#f4b400;
+}
+
+.delivery i{
+    color:#25D366;
+}
+
+.card h3{
+    margin-bottom:15px;
+    font-size:1.8rem;
+}
+
+.card p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.btn-card{
+    display:inline-block;
+    text-decoration:none;
+    background:#111;
+    color:white;
+    padding:14px 30px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-card:hover{
+    background:#ffc107;
+    color:#111;
+}
+
+/* ===========================
+   FORMULARIOS
+=========================== */
+
+.form-section{
+    padding:80px 8%;
+    background:white;
+}
+
+.form-section h2{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+form{
+    max-width:650px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+input,
+textarea{
+    padding:16px;
+    border:none;
+    background:#f3f4f6;
+    border-radius:15px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
+}
+
+input:focus,
+textarea:focus{
+    background:white;
+    box-shadow:0 0 0 3px rgba(255,193,7,.4);
+}
+
+textarea{
+    resize:none;
+    min-height:130px;
+}
+
+button{
+    padding:18px;
+    border:none;
+    background:#25D366;
+    color:white;
+    border-radius:50px;
+    font-size:17px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+footer h3{
+    margin-bottom:10px;
+}
+
+footer p{
+    margin-bottom:20px;
+}
+
+footer a{
+    color:#25D366;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* ===========================
+   WHATSAPP FLOTANTE
+=========================== */
+
+.floating-whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    background:#25D366;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    transition:.3s;
+}
+
+.floating-whatsapp:hover{
+    transform:scale(1.1);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.hero-content{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:2.5rem;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+
+.logo{
+    flex-direction:column;
+}
+
+.hero-image{
+    margin-top:20px;
+}
+
+.services{
+    padding-top:60px;
+}
+
+}
+    </style>
+</head>
+<body>
+
+    <!-- ========= HEADER ========= -->
+
+    <header class="hero">
+
+        <nav class="navbar">
+
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo">
+                <h2>Transporte & Delivery</h2>
+            </div>
+
+            <a href="https://wa.me/50498886488" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+
+        </nav>
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <h1>
+                    Tu transporte y tus envíos
+                    <span>en un solo lugar.</span>
+                </h1>
+
+                <p>
+                    Solicita un Taxi o un Delivery
+                    en pocos segundos desde tu celular.
+                </p>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="img/hero.png" alt="Conductor">
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ========= SERVICIOS ========= -->
+
+    <section class="services" id="servicios">
+
+        <h2>¿Qué servicio necesitas?</h2>
+
+        <p class="subtitle">
+            Selecciona una opción para continuar.
+        </p>
+
+        <div class="cards">
+
+            <!-- TAXI -->
+
+            <div class="card taxi">
+
+                <i class="fas fa-taxi"></i>
+
+                <h3>Taxi</h3>
+
+                <p>
+                    Viajes rápidos, cómodos y seguros.
+                </p>
+
+                <a href="#formTaxi" class="btn-card">
+                    Solicitar Taxi
+                </a>
+
+            </div>
+
+            <!-- DELIVERY -->
+
+            <div class="card delivery">
+
+                <i class="fas fa-motorcycle"></i>
+
+                <h3>Delivery</h3>
+
+                <p>
+                    Compras, comida y envíos rápidos.
+                </p>
+
+                <a href="#formDelivery" class="btn-card">
+                    Solicitar Delivery
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========= FORMULARIO TAXI ========= -->
+
+    <section id="formTaxi" class="form-section">
+
+        <h2>Solicitar Taxi</h2>
+
+        <form id="taxiForm">
+
+            <input
+                type="text"
+                placeholder="Nombre"
+                required
+            >
+
+            <input
+                type="text"
+                placeholder="Ubicación de recogida"
+                required
+            >
+
+            <input
+                type="text"
+                placeholder="Destino"
+                required
+            >
+
+            <textarea
+                placeholder="Comentarios (Opcional)"
+            ></textarea>
+
+            <button type="submit">
+                Enviar por WhatsApp
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- ========= FORMULARIO DELIVERY ========= -->
+
+    <section id="formDelivery" class="form-section">
+
+        <h2>Solicitar Delivery</h2>
+
+        <form id="deliveryForm">
+
+            <input
+                type="text"
+                placeholder="Nombre"
+                required
+            >
+
+            <input
+                type="text"
+                placeholder="Lugar de recogida"
+                required
+            >
+
+            <input
+                type="text"
+                placeholder="Lugar de entrega"
+                required
+            >
+
+            <textarea
+                placeholder="¿Qué necesitas enviar?"
+            ></textarea>
+
+            <button type="submit">
+                Enviar por WhatsApp
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- ========= FOOTER ========= -->
+
+    <footer>
+
+        <h3>Transporte & Delivery</h3>
+
+        <p>
+            Servicio rápido • Seguro • Confiable
+        </p>
+
+        <a href="https://wa.me/50498886488">
+            <i class="fab fa-whatsapp"></i>
+            Contactar por WhatsApp
+        </a>
+
+    </footer>
+
+    <!-- Botón flotante -->
+
+    <a href="https://wa.me/50498886488" class="floating-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+    // =====================================
+// CONFIGURACIÓN
+// =====================================
+
+const PHONE = "50493714756";
+
+// =====================================
+// FORMULARIO TAXI
+// =====================================
+
+const taxiForm = document.getElementById("taxiForm");
+
+if (taxiForm) {
+
+    taxiForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const nombre = taxiForm.querySelectorAll("input")[0].value.trim();
+        const origen = taxiForm.querySelectorAll("input")[1].value.trim();
+        const destino = taxiForm.querySelectorAll("input")[2].value.trim();
+        const comentario = taxiForm.querySelector("textarea").value.trim();
+
+        if (!nombre || !origen || !destino) {
+            alert("Completa todos los campos obligatorios.");
+            return;
+        }
+
+        const mensaje = `
+🚖 *NUEVA SOLICITUD DE TAXI*
+
+👤 Nombre:
+${nombre}
+
+📍 Lugar de recogida:
+${origen}
+
+🎯 Destino:
+${destino}
+
+📝 Comentarios:
+${comentario || "Sin comentarios"}
+
+Enviado desde la Landing Page.
+`;
+
+        const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(mensaje)}`;
+
+        window.open(url, "_blank");
+
+    });
+
+}
+
+// =====================================
+// FORMULARIO DELIVERY
+// =====================================
+
+const deliveryForm = document.getElementById("deliveryForm");
+
+if (deliveryForm) {
+
+    deliveryForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const nombre = deliveryForm.querySelectorAll("input")[0].value.trim();
+        const recoger = deliveryForm.querySelectorAll("input")[1].value.trim();
+        const entregar = deliveryForm.querySelectorAll("input")[2].value.trim();
+        const descripcion = deliveryForm.querySelector("textarea").value.trim();
+
+        if (!nombre || !recoger || !entregar) {
+            alert("Completa todos los campos obligatorios.");
+            return;
+        }
+
+        const mensaje = `
+🛵 *NUEVA SOLICITUD DE DELIVERY*
+
+👤 Nombre:
+${nombre}
+
+📦 Lugar de recogida:
+${recoger}
+
+🏠 Lugar de entrega:
+${entregar}
+
+📋 Descripción:
+${descripcion || "Sin descripción"}
+
+Enviado desde la Landing Page.
+`;
+
+        const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(mensaje)}`;
+
+        window.open(url, "_blank");
+
+    });
+
+}
+
+// =====================================
+// ANIMACIÓN AL HACER SCROLL
+// =====================================
+
+const elementos = document.querySelectorAll(".card, .form-section");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+elementos.forEach(el => {
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "all .7s ease";
+
+    observer.observe(el);
+
+});
+
+// =====================================
+// SCROLL SUAVE
+// =====================================
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const destino = document.querySelector(this.getAttribute("href"));
+
+        if (destino) {
+
+            destino.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    });
+
+});
+
+// =====================================
+// BOTONES DESHABILITADOS AL ENVIAR
+// =====================================
+
+document.querySelectorAll("form").forEach(form => {
+
+    form.addEventListener("submit", () => {
+
+        const boton = form.querySelector("button");
+
+        boton.disabled = true;
+        boton.innerHTML = "Enviando...";
+
+        setTimeout(() => {
+
+            boton.disabled = false;
+            boton.innerHTML = "Enviar por WhatsApp";
+
+        }, 2500);
+
+    });
+
+});
+    </script>
+
+</body>
+</html>
