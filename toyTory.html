@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen | Toy Story</title>
+    <style>*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+background:#111;
+color:white;
+
+}
+
+header{
+
+background:#222;
+padding:30px;
+text-align:center;
+
+}
+
+header h1{
+
+font-size:40px;
+
+}
+
+header p{
+
+margin-top:10px;
+color:#ccc;
+
+}
+
+.hero{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+
+padding:40px;
+
+max-width:1200px;
+margin:auto;
+
+}
+
+.imagen img{
+
+width:100%;
+border-radius:15px;
+
+box-shadow:0 0 20px rgba(0,0,0,.5);
+
+}
+
+.contenido{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+#texto{
+
+background:#1b1b1b;
+
+padding:20px;
+
+border-radius:10px;
+
+line-height:1.8;
+
+max-height:500px;
+
+overflow-y:auto;
+
+}
+
+button{
+
+padding:15px;
+
+border:none;
+
+background:#ffcc00;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+border-radius:8px;
+
+}
+
+button:hover{
+
+background:#ff9900;
+
+}
+
+@media(max-width:900px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+}
+
+header h1{
+
+font-size:32px;
+
+}
+
+}</style>
+</head>
+<body>
+
+<header>
+    <h1>🎬 Toy Story</h1>
+    <p>Resumen completo de la película</p>
+</header>
+
+<section class="hero">
+
+    <div class="imagen">
+        <img src="https://m.media-amazon.com/images/M/MV5BNjk1NjgzMzc1MF5BMl5BanBnXkFtZTcwNzk0MjIyNw@@._V1_.jpg" alt="Toy Story">
+    </div>
+
+    <div class="contenido">
+
+        <h2>Historia</h2>
+
+        <div id="texto"></div>
+
+        <button id="leer">
+            Leer resumen
+        </button>
+
+    </div>
+
+</section>
+
+<script>const resumen = `
+
+Todo el mundo cree que Toy Story es solo una película sobre juguetes que cobran vida, pero después de verla otra vez me di cuenta de que la verdadera historia es completamente diferente.
+Había una vez un niño llamado Andy que vivía feliz con su mamá y su hermanita. En su habitación había muchos juguetes, aunque todos escondían un gran secreto: cobraban vida cuando ningún humano los estaba mirando.
+El líder de todos era Woody, un vaquero que además tenía el privilegio de ser el juguete favorito de Andy. Pero todo cambió el día de su cumpleaños. Los juguetes estaban aterrados porque sabían que cada regalo nuevo podía significar el fin de alguno de ellos.
+Y fue exactamente lo que pasó.
+Andy recibió a Buzz Lightyear, un guardián espacial lleno de luces, botones y frases increíbles. Lo más curioso es que Buzz ni siquiera sabía que era un juguete. Estaba completamente convencido de que era un auténtico héroe espacial con una misión muy importante.
+Todos los juguetes quedaron impresionados con él... todos menos Woody.
+Al principio parecía simple envidia, pero la realidad es que Woody estaba viendo cómo poco a poco perdía el lugar que había ocupado durante toda su vida. Andy ya casi no jugaba con él y Buzz se estaba convirtiendo en el nuevo favorito.
+Durante una discusión entre ambos ocurrió un accidente. Woody empujó a Buzz y este salió volando por la ventana. Los demás pensaron que lo había hecho a propósito y, de un momento a otro, Woody pasó de ser el líder a convertirse en el villano de la habitación.
+Pero eso solo era el comienzo.
+Más tarde, Andy llevó a Woody a Pizza Planeta. Lo que nadie esperaba era que Buzz hubiera sobrevivido a la caída y lograra subir al automóvil para enfrentarlo. Mientras discutían, Andy y su mamá se marcharon sin ellos, dejándolos completamente solos.
+Intentando regresar con Andy, terminaron en el peor lugar posible: la casa de Sid, un niño que disfrutaba destruir juguetes por diversión. Allí descubrieron juguetes mutilados y vivieron probablemente los momentos más aterradores de toda la película.
+Y fue justamente en ese lugar donde Buzz recibió el golpe más duro de su vida.
+Al ver un comercial de televisión descubrió que no era un verdadero guardián espacial. Era simplemente un juguete fabricado en serie. Toda la identidad que había construido desapareció en cuestión de segundos.
+Woody entonces hizo algo que nadie esperaba.
+En lugar de burlarse de él, le explicó que ser un juguete no era una desgracia. Al contrario, significaba tener la oportunidad de hacer feliz a un niño, y esa era una misión mucho más importante que salvar una galaxia.
+Gracias a esas palabras, Buzz recuperó la confianza y ambos dejaron atrás su rivalidad.
+Con la ayuda de los extraños juguetes creados por Sid lograron escapar de la casa. Sin embargo, Andy y su familia ya estaban mudándose, así que ahora tenían una carrera contra el tiempo para alcanzarlos antes de perderse para siempre.
+Después de superar varios obstáculos utilizaron un cohete para impulsarse por los cielos. Cuando todo parecía terminar en desastre, Buzz abrió sus alas y, aunque no podía volar... sí podía planear.
+Finalmente ambos aterrizaron dentro del automóvil de Andy.
+El niño recuperó a sus dos juguetes favoritos sin imaginar todo lo que habían vivido para volver con él.
+Y así terminó una historia que muchos recuerdan como una simple película de juguetes, cuando en realidad habla sobre los celos, la amistad, aceptar quién eres y descubrir que, a veces, perder el primer lugar puede llevarte a encontrar un amigo para toda la vida.
+
+`;
+
+const texto = document.getElementById("texto");
+
+document.getElementById("leer").addEventListener("click",()=>{
+
+texto.innerHTML=resumen.replace(/\n/g,"<br>");
+
+});</script>
+
+</body>
+</html>
