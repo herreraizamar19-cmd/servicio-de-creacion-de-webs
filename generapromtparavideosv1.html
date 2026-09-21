@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow Film Studio — Prompt Lab</title>
+<style>
+:root{--bg:#080912;--panel:#111322;--panel2:#171a2e;--line:#282c45;--text:#f4f5ff;--muted:#9ba2c4;--violet:#9a5cff;--cyan:#36e4f5;--green:#63f2ba}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% -20%,#292052 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;color:var(--text);transition:.2s}button:hover{transform:translateY(-1px);filter:brightness(1.12)}
+.shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{padding:25px 17px;border-right:1px solid var(--line);background:#0b0d18d9;display:flex;flex-direction:column;gap:22px}
+.brand{display:flex;align-items:center;gap:11px;padding:4px 8px}.logo{width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;color:#090a14;font-weight:900;font-size:18px;box-shadow:0 0 25px #9a5cff44}.brand strong{display:block;letter-spacing:.4px}.brand small{color:var(--muted);font-size:10px;letter-spacing:2px}
+.navlabel{color:#737b9e;font-size:10px;letter-spacing:1.7px;padding:0 12px;text-transform:uppercase}.nav button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px;border-radius:11px;background:transparent;color:#aeb4d2;margin:3px 0}.nav button.active{background:linear-gradient(90deg,#9a5cff26,#36e4f510);color:white;border:1px solid #7652c744}.nav button span{font-size:18px;width:22px;text-align:center}.sidefoot{margin-top:auto;background:linear-gradient(135deg,#17152d,#101626);border:1px solid var(--line);padding:15px;border-radius:15px}.sidefoot b{font-size:12px}.sidefoot p{font-size:11px;color:var(--muted);margin:7px 0 0}
+main{padding:28px clamp(16px,3vw,42px);max-width:1600px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:30px}.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:2px;font-weight:800;text-transform:uppercase}.top h1{font-size:clamp(25px,3vw,36px);margin:5px 0 0;letter-spacing:-1.2px}.top p{margin:6px 0 0;color:var(--muted)}.status{border:1px solid #2b3451;background:#111728;padding:8px 12px;border-radius:99px;font-size:11px;color:#c6d3ef;white-space:nowrap}.status i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px;box-shadow:0 0 10px var(--green)}
+.hero{border:1px solid #38305d;border-radius:20px;padding:24px;background:linear-gradient(110deg,#20163a 0%,#14172b 50%,#10222c 100%);position:relative;overflow:hidden;margin-bottom:24px}.hero:after{content:"";position:absolute;width:220px;height:220px;right:-70px;top:-100px;border-radius:50%;background:#8e54ff30;filter:blur(25px)}.hero h2{margin:0 0 8px;font-size:22px}.hero p{margin:0;color:#b6bddb;max-width:720px}.hero .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.tag{font-size:10px;color:#d7dcf5;background:#ffffff0c;border:1px solid #ffffff16;border-radius:99px;padding:5px 9px}
+.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);gap:20px;align-items:start}.panel{background:linear-gradient(180deg,#131526,#0f1120);border:1px solid var(--line);border-radius:17px;padding:20px;box-shadow:0 12px 40px #0002}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}.panelhead h3{margin:0;font-size:16px}.step{font-size:10px;color:var(--cyan);border:1px solid #36e4f538;padding:4px 8px;border-radius:6px;letter-spacing:1px}
+label{display:block;font-size:11px;color:#aeb5d2;margin:13px 0 7px;font-weight:700;letter-spacing:.35px}input,textarea,select{width:100%;background:#0a0c17;border:1px solid #2b304a;border-radius:10px;padding:11px 12px;color:var(--text);outline:none}input:focus,textarea:focus,select:focus{border-color:#8d5cff;box-shadow:0 0 0 3px #8d5cff18}textarea{resize:vertical;min-height:78px}::placeholder{color:#59617f}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hint{font-size:10px;color:#777f9f;margin-top:5px}.masterlist{display:flex;gap:7px;flex-wrap:wrap}.master{border:1px solid #35304f;background:#1b1830;color:#d8caff;padding:7px 10px;border-radius:8px;font-size:11px}.master:hover{border-color:var(--violet)}
+.primary{background:linear-gradient(100deg,#8f4fff,#5f72ff);padding:12px 17px;border-radius:10px;font-weight:800;box-shadow:0 6px 22px #8755ff2e}.secondary{background:#20243a;border:1px solid #343956;padding:10px 14px;border-radius:10px;font-size:12px}.ghost{background:transparent;color:#aab2d0;border:1px solid #30354e;padding:9px 12px;border-radius:9px;font-size:12px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.output{position:sticky;top:20px}.outputbox{background:#090b15;border:1px solid #292e48;border-radius:12px;padding:15px;min-height:370px;white-space:pre-wrap;color:#d5daf3;font:12px/1.75 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}.outtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.outtop small{color:#7e87a9;font-size:10px}.outactions{display:flex;gap:7px}.outactions button{font-size:11px;padding:8px 10px;border-radius:8px;background:#1b2035;border:1px solid #333956}.empty{color:#6e7695}.saved{margin-top:18px}.saveditem{padding:10px;border:1px solid #292e45;border-radius:9px;margin-top:8px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;color:#c4cbe7}.saveditem button{background:transparent;color:#a9b1d0}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(30px);opacity:0;background:#192a31;border:1px solid #2b806f;color:#b5ffe5;padding:10px 16px;border-radius:10px;transition:.25s;z-index:5}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+footer{color:#5f6787;text-align:center;font-size:10px;padding:25px}
+@media(max-width:950px){.shell{grid-template-columns:1fr}.sidebar{display:none}.layout{grid-template-columns:1fr}.output{position:static}.outputbox{min-height:260px}.top{align-items:flex-start;flex-direction:column}.status{display:none}}
+@media(max-width:520px){main{padding:17px 12px}.hero,.panel{padding:16px}.two{grid-template-columns:1fr}.actions button{flex:1}.top h1{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+ <div class="brand"><div class="logo">F</div><div><strong>FLOW FILM STUDIO</strong><small>PROMPT LAB · BETA</small></div></div>
+ <div class="navlabel">Workspace</div><nav class="nav">
+ <button class="active"><span>✦</span>Prompt Studio</button><button onclick="focusProjects()"><span>▤</span>Mis proyectos</button><button onclick="showToast('Biblioteca de personajes: añade tus @Master en el generador.')"><span>◈</span>Personajes Master</button>
+ </nav>
+ <div class="navlabel">Tu flujo</div><nav class="nav">
+ <button onclick="showToast('Plantilla de continuidad lista para usar en el prompt.')"><span>⤷</span>Continuidad de clips</button><button onclick="showToast('Los prompts se guardan en este navegador al pulsar Guardar.')"><span>▣</span>Biblioteca de prompts</button>
+ </nav>
+ <div class="sidefoot"><b>✧ Tu estudio, tus historias</b><p>Prepara prompts cinematográficos listos para copiar en Google Flow.</p></div>
+</aside>
+<main>
+ <header class="top"><div><div class="eyebrow">Creative workspace / 01</div><h1>Prompt Studio<span style="color:var(--violet)">.</span></h1><p>Convierte tu idea en una escena lista para producir.</p></div><div class="status"><i></i> LOCAL WORKSPACE · BETA</div></header>
+ <section class="hero"><h2>Una escena a la vez. Una película completa.</h2><p>Construye clips de 10 segundos con personajes consistentes, diálogos precisos y continuidad cinematográfica. Genera el prompt y llévalo a Google Flow.</p><div class="tags"><span class="tag">✦ Clips de 10 segundos</span><span class="tag">@Master continuity</span><span class="tag">Exact dialogue control</span><span class="tag">Copy-ready prompts</span></div></section>
+ <div class="layout">
+ <section class="panel">
+  <div class="panelhead"><h3>Constructor de escena</h3><span class="step">STEP 01 / BUILD</span></div>
+  <label>Nombre del proyecto</label><input id="project" placeholder="Ej. La Navidad de Luna y Chispa" value="">
+  <div class="two"><div><label>Clip #</label><input id="clip" type="number" min="1" value="1"></div><div><label>Duración</label><select id="duration"><option>10 seconds</option><option>8 seconds</option><option>12 seconds</option><option>15 seconds</option></select></div></div>
+  <label>Personajes Master</label><div class="masterlist"><button class="master" onclick="addMaster('@Luna_Master')">@Luna_Master +</button><button class="master" onclick="addMaster('@Chispa_Master')">@Chispa_Master +</button><button class="master" onclick="addMaster('@chachi')">@chachi +</button></div>
+  <input id="masters" placeholder="@Luna_Master, @Chispa_Master">
+  <label>Continuidad / conexión con el clip anterior</label><textarea id="continuity" placeholder="Continue directly from the previous shot. Mantén vestuario, posición, iluminación y acción..."></textarea>
+  <label>Acción visual de la escena</label><textarea id="action" placeholder="Describe qué hacen los personajes durante el clip, de forma clara y visual."></textarea>
+  <label>Diálogo exacto</label><textarea id="dialogue" placeholder='@Luna_Master says exactly: “...”'></textarea>
+  <div class="two"><div><label>Quién habla</label><input id="speaker" placeholder="@Luna_Master"></div><div><label>Quién NO habla</label><input id="silent" placeholder="@Chispa_Master remains silent"></div></div>
+  <label>Dirección cinematográfica</label><textarea id="camera" placeholder="Camera movement, framing, facial expressions, pacing, lighting..."></textarea>
+  <label>Sonido / ambiente</label><input id="sound" placeholder="Soft Christmas ambience, subtle footsteps...">
+  <label>Estilo visual</label><select id="style"><option>Cinematic 3D animated film</option><option>Photorealistic cinematic</option><option>Stylized 3D animation</option><option>Stop-motion animation</option><option>Anime cinematic</option></select>
+  <div class="actions"><button class="primary" onclick="generate()">✦ Generar prompt</button><button class="secondary" onclick="resetForm()">Limpiar</button></div>
+ </section>
+ <section class="panel output">
+  <div class="panelhead"><h3>Prompt generado</h3><span class="step">OUTPUT</span></div>
+  <div class="outtop"><small>GOOGLE FLOW · READY TO COPY</small><div class="outactions"><button onclick="copyPrompt()">▣ Copiar</button><button onclick="savePrompt()">＋ Guardar</button></div></div>
+  <div id="output" class="outputbox"><span class="empty">Tu prompt cinematográfico aparecerá aquí. Completa la escena y pulsa “Generar prompt”.</span></div>
+  <div class="saved" id="projects"><div class="panelhead"><h3>Prompts guardados</h3><small style="color:var(--muted)">En este dispositivo</small></div><div id="savedList"><div class="hint">Todavía no has guardado prompts.</div></div></div>
+ </section>
+ </div>
+ <footer>FLOW FILM STUDIO · Independent prompt workspace · No direct video generation</footer>
+</main></div><div class="toast" id="toast"></div>
+<script>
+let currentPrompt='';
+const $=id=>document.getElementById(id);
+function addMaster(name){let el=$('masters');el.value=(el.value.trim()?el.value.trim()+', ':'')+name;el.focus()}
+function val(id){return $(id).value.trim()}
+function generate(){
+ const project=val('project')||'Untitled Film Project', clip=val('clip')||'1';
+ const lines=[
+ `Cinematic scene for the project: "${project}".`,
+ `Clip ${clip} — ${val('duration')||'10 seconds'}.`,
+ `Visual style: ${val('style')||'Cinematic 3D animated film'}.`,
+ val('masters')?`Match these character references exactly: ${val('masters')}. Preserve their established appearance, proportions, wardrobe, and identity.`:'',
+ val('continuity')||'',
+ val('action')?`SCENE ACTION:\n${val('action')}`:'',
+ val('camera')?`CINEMATOGRAPHY:\n${val('camera')}`:'',
+ val('dialogue')?`EXACT DIALOGUE:\n${val('dialogue')}`:'',
+ val('speaker')?`SPEAKING CHARACTER: ${val('speaker')}. Only this character speaks the specified dialogue.`:'',
+ val('silent')?`SILENT CHARACTERS: ${val('silent')}. They do not speak or generate dialogue.`:'',
+ val('sound')?`SOUND DESIGN:\n${val('sound')}`:'',
+ 'Maintain natural timing, coherent movement, consistent character design, and clear visual storytelling throughout the entire clip. No extra dialogue, no unintended character speech, no abrupt cuts, and no changes to established character details.'
+ ].filter(Boolean);
+ currentPrompt=lines.join('\n\n');$('output').textContent=currentPrompt;showToast('Prompt generado ✦');
+}
+async function copyPrompt(){if(!currentPrompt){generate()}try{await navigator.clipboard.writeText(currentPrompt);showToast('Prompt copiado al portapapeles')}catch(e){showToast('Selecciona y copia el prompt manualmente')}}
+function savePrompt(){if(!currentPrompt)generate();let arr=JSON.parse(localStorage.getItem('ffs_prompts')||'[]');arr.unshift({name:val('project')||'Proyecto sin nombre',clip:val('clip')||'1',prompt:currentPrompt,date:new Date().toLocaleDateString()});localStorage.setItem('ffs_prompts',JSON.stringify(arr.slice(0,30)));renderSaved();showToast('Prompt guardado en este dispositivo')}
+function renderSaved(){let arr=JSON.parse(localStorage.getItem('ffs_prompts')||'[]');$('savedList').innerHTML=arr.length?arr.map((x,i)=>`<div class="saveditem"><div><b>${escapeHtml(x.name)}</b><div class="hint">Clip ${escapeHtml(x.clip)} · ${escapeHtml(x.date)}</div></div><button onclick="loadSaved(${i})">Abrir ↗</button></div>`).join(''):'<div class="hint">Todavía no has guardado prompts.</div>'}
+function loadSaved(i){let x=JSON.parse(localStorage.getItem('ffs_prompts')||'[]')[i];currentPrompt=x.prompt;$('output').textContent=currentPrompt;showToast('Prompt cargado')}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function resetForm(){['project','clip','masters','continuity','action','dialogue','speaker','silent','camera','sound'].forEach(id=>$(id).value='');$('clip').value='1';currentPrompt='';$('output').innerHTML='<span class="empty">Tu prompt cinematográfico aparecerá aquí.</span>';showToast('Formulario limpio')}
+function showToast(t){let el=$('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
+function focusProjects(){$('projects').scrollIntoView({behavior:'smooth',block:'center'})}
+renderSaved();
+</script>
+</body></html>
