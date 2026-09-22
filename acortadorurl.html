@@ -2,313 +2,466 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LinkFlash | Acortador de enlaces</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101326">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <title>LinkFlash | Acortador de enlaces</title>
 
-body {
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #101326, #28204f, #5427a8);
-  color: white;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.container {
-  width: 100%;
-  max-width: 480px;
-  padding: 30px;
-  border: 1px solid #ffffff25;
-  border-radius: 24px;
-  background: #17182beF;
-  box-shadow: 0 20px 60px #0005;
-}
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(
+        135deg, #101326, #28204f, #5427a8
+      );
+      color: white;
+    }
 
-.logo {
-  text-align: center;
-  font-size: 30px;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
+    .container {
+      width: 100%;
+      max-width: 480px;
+      padding: 30px;
+      border: 1px solid #ffffff25;
+      border-radius: 24px;
+      background: #17182b;
+      box-shadow: 0 20px 60px #0005;
+    }
 
-.logo span {
-  color: #a78bfa;
-}
+    .logo {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
 
-.subtitle {
-  text-align: center;
-  color: #b8b9cc;
-  line-height: 1.5;
-  margin-bottom: 28px;
-}
+    .logo span {
+      color: #a78bfa;
+    }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: bold;
-}
+    .subtitle {
+      text-align: center;
+      color: #b8b9cc;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
 
-input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #393952;
-  border-radius: 12px;
-  background: #24243b;
-  color: white;
-  font-size: 15px;
-  outline: none;
-}
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-input:focus {
-  border-color: #a78bfa;
-}
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #393952;
+      border-radius: 12px;
+      background: #24243b;
+      color: white;
+      font-size: 15px;
+      outline: none;
+    }
 
-button {
-  width: 100%;
-  padding: 15px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #8b5cf6, #6d48e5);
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
+    input:focus {
+      border-color: #a78bfa;
+    }
 
-button:hover {
-  filter: brightness(1.12);
-  transform: translateY(-1px);
-}
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #8b5cf6, #6d48e5);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-button:disabled {
-  opacity: 0.6;
-  cursor: wait;
-  transform: none;
-}
+    button:hover {
+      filter: brightness(1.12);
+      transform: translateY(-1px);
+    }
 
-.result {
-  display: none;
-  margin-top: 24px;
-  padding: 18px;
-  border-radius: 14px;
-  background: #24243b;
-  overflow-wrap: anywhere;
-}
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+      transform: none;
+    }
 
-.result p {
-  color: #aaaac2;
-  font-size: 13px;
-  margin-bottom: 10px;
-}
+    .message {
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.5;
+      margin-top: 15px;
+      overflow-wrap: anywhere;
+    }
 
-#shortUrl {
-  color: #c4b5fd;
-  font-weight: bold;
-  font-size: 17px;
-}
+    .result {
+      display: none;
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 14px;
+      background: #24243b;
+      overflow-wrap: anywhere;
+    }
 
-.copy-btn {
-  background: #292944;
-  border: 1px solid #6550a7;
-}
+    .result p {
+      color: #aaaac2;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
 
-.message {
-  font-size: 13px;
-  text-align: center;
-  color: #fca5a5;
-  margin-top: 12px;
-}
+    #shortUrl {
+      color: #c4b5fd;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
 
-.footer {
-  text-align: center;
-  color: #85859e;
-  font-size: 12px;
-  margin-top: 25px;
-}
+    #shortUrl:hover {
+      text-decoration: underline;
+    }
 
-</style>
+    .secondary {
+      background: #292944;
+      border: 1px solid #6550a7;
+    }
+
+    .footer {
+      text-align: center;
+      color: #85859e;
+      font-size: 12px;
+      margin-top: 25px;
+    }
+
+    .loader {
+      display: inline-block;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 400px) {
+      .container {
+        padding: 22px;
+      }
+
+      .logo {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <main class="container">
 
-  <div class="logo">🔗 Link<span>Flash</span></div>
+    <div class="logo">🔗 Link<span>Flash</span></div>
 
-  <p class="subtitle">
-    Enlaces largos. Compartir en un instante.
-    Acorta tus URLs gratis y fácilmente.
-  </p>
+    <p class="subtitle">
+      Enlaces largos. Compartir en un instante.
+      Acorta tus URLs gratis y fácilmente.
+    </p>
 
-  <form id="shortenForm">
-    <label for="longUrl">Pega tu enlace aquí</label>
+    <form id="shortenForm">
 
-    <input
-      type="text"
-      id="longUrl"
-      placeholder="https://ejemplo.com/mi-enlace"
-      required
-    >
+      <label for="longUrl">Pega tu enlace aquí</label>
 
-    <button type="submit" id="shortenBtn">
-      ✦ Acortar mi enlace
-    </button>
-  </form>
+      <input
+        type="text"
+        id="longUrl"
+        placeholder="https://ejemplo.com/mi-enlace"
+        autocomplete="url"
+        required
+      >
 
-  <div class="message" id="message"></div>
+      <button type="submit" id="shortenBtn">
+        ✦ Acortar mi enlace
+      </button>
 
-  <div class="result" id="result">
-    <p>¡Tu enlace está listo!</p>
+    </form>
 
-    <div id="shortUrl"></div>
+    <div class="message" id="message" role="status"></div>
 
-    <button class="copy-btn" id="copyBtn">
-      📋 Copiar enlace
-    </button>
+    <section class="result" id="result">
 
-    <button class="copy-btn" id="shareBtn">
-      ↗ Compartir enlace
-    </button>
-  </div>
+      <p>🎉 ¡Tu enlace está listo!</p>
 
-  <div class="footer">
-    LinkFlash · Acortador de enlaces
-  </div>
+      <a
+        id="shortUrl"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      ></a>
 
-</div>
+      <button
+        type="button"
+        class="secondary"
+        id="copyBtn"
+      >
+        📋 Copiar enlace
+      </button>
 
-<script>
-const form = document.getElementById("shortenForm");
-const input = document.getElementById("longUrl");
-const button = document.getElementById("shortenBtn");
-const message = document.getElementById("message");
-const result = document.getElementById("result");
-const shortUrlBox = document.getElementById("shortUrl");
-const copyBtn = document.getElementById("copyBtn");
-const shareBtn = document.getElementById("shareBtn");
+      <button
+        type="button"
+        class="secondary"
+        id="shareBtn"
+      >
+        ↗ Compartir enlace
+      </button>
 
-let currentShortUrl = "";
+    </section>
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+    <div class="footer">
+      LinkFlash · Acortador de enlaces
+    </div>
 
-  let originalUrl = input.value.trim();
+  </main>
 
-  // Validar y normalizar el enlace
-  if (!/^https?:\/\//i.test(originalUrl)) {
-    originalUrl = "https://" + originalUrl;
-  }
+  <script>
+    // =====================================
+    // CONFIGURACIÓN DE LINKFLASH
+    // =====================================
 
-  let parsedUrl;
+    const WORKER_URL =
+      "https://dawn-queen-0dc6linkflash-api.herreraizamar19.workers.dev/";
 
-  try {
-    parsedUrl = new URL(originalUrl);
+    // =====================================
+    // ELEMENTOS
+    // =====================================
 
-    if (!["http:", "https:"].includes(parsedUrl.protocol)) {
-      throw new Error("Protocolo inválido");
-    }
-  } catch {
-    message.textContent = "Ingresa una URL válida.";
-    result.style.display = "none";
-    return;
-  }
+    const form = document.getElementById("shortenForm");
+    const input = document.getElementById("longUrl");
+    const button = document.getElementById("shortenBtn");
+    const message = document.getElementById("message");
+    const result = document.getElementById("result");
+    const shortUrlBox = document.getElementById("shortUrl");
+    const copyBtn = document.getElementById("copyBtn");
+    const shareBtn = document.getElementById("shareBtn");
 
-  button.disabled = true;
-  button.textContent = "⏳ Acortando...";
-  message.textContent = "";
-  result.style.display = "none";
+    let currentShortUrl = "";
 
-  try {
-    
-const WORKER_URL =
-  "https://dawn-queen-0dc6linkflash-api.herreraizamar19.workers.dev/";
+    // =====================================
+    // ACORTAR ENLACE
+    // =====================================
 
-const api =
-  WORKER_URL +
-  "?url=" +
-  encodeURIComponent(parsedUrl.href);
- +
-      encodeURIComponent(parsedUrl.href);
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    const response = await fetch(api);
+      let originalUrl = input.value.trim();
 
-    if (!response.ok) {
-      throw new Error("Error de conexión con el servicio.");
-    }
-
-    const data = await response.json();
-
-    if (!data.shorturl) {
-      throw new Error(data.errormessage || "No se pudo acortar.");
-    }
-
-    currentShortUrl = data.shorturl;
-    shortUrlBox.textContent = currentShortUrl;
-    result.style.display = "block";
-
-  } catch (error) {
-    message.textContent =
-      error.message.includes("Failed to fetch")
-        ? "No se pudo conectar. Intenta de nuevo o revisa tu conexión."
-        : error.message || "Ocurrió un error. Intenta de nuevo.";
-  } finally {
-    button.disabled = false;
-    button.textContent = "✦ Acortar mi enlace";
-  }
-});
-
-// Copiar enlace
-copyBtn.addEventListener("click", async () => {
-  if (!currentShortUrl) return;
-
-  try {
-    await navigator.clipboard.writeText(currentShortUrl);
-    copyBtn.textContent = "✅ ¡Copiado!";
-  } catch {
-    message.textContent =
-      "No se pudo copiar automáticamente. Mantén presionado el enlace.";
-  }
-});
-
-// Compartir enlace
-shareBtn.addEventListener("click", async () => {
-  if (!currentShortUrl) return;
-
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: "Mi enlace acortado",
-        url: currentShortUrl
-      });
-    } catch (error) {
-      if (error.name !== "AbortError") {
-        message.textContent = "No se pudo compartir el enlace.";
+      // Agregar HTTPS si el usuario no lo incluyó
+      if (!/^https?:\/\//i.test(originalUrl)) {
+        originalUrl = "https://" + originalUrl;
       }
+
+      let parsedUrl;
+
+      try {
+        parsedUrl = new URL(originalUrl);
+
+        if (
+          !["http:", "https:"].includes(parsedUrl.protocol) ||
+          !parsedUrl.hostname.includes(".") ||
+          parsedUrl.hostname.startsWith(".") ||
+          parsedUrl.hostname.endsWith(".")
+        ) {
+          throw new Error("URL inválida");
+        }
+
+      } catch {
+        showMessage(
+          "Por favor, ingresa un enlace válido.",
+          "#fca5a5"
+        );
+        return;
+      }
+
+      // Estado de carga
+      button.disabled = true;
+      button.innerHTML = '<span class="loader">⏳ Acortando...</span>';
+      message.textContent = "";
+      result.style.display = "none";
+      currentShortUrl = "";
+
+      try {
+        // Conectar con TU Worker de Cloudflare
+        const api =
+          WORKER_URL +
+          "?url=" +
+          encodeURIComponent(parsedUrl.href);
+
+        const response = await fetch(api);
+
+        // Leer respuesta del Worker
+        const data = await response.json();
+
+        // Detectar errores HTTP o del servicio
+        if (!response.ok || !data.shorturl) {
+          throw new Error(
+            data.errormessage ||
+            data.error ||
+            "No se pudo acortar el enlace."
+          );
+        }
+
+        // Validar enlace corto recibido
+        const shortUrl = new URL(data.shorturl);
+
+        if (
+          shortUrl.protocol !== "https:" ||
+          shortUrl.hostname !== "is.gd"
+        ) {
+          throw new Error("El servicio devolvió una URL inesperada.");
+        }
+
+        // Mostrar resultado
+        currentShortUrl = shortUrl.href;
+
+        shortUrlBox.textContent = currentShortUrl;
+        shortUrlBox.href = currentShortUrl;
+
+        result.style.display = "block";
+
+        showMessage(
+          "¡Enlace acortado correctamente!",
+          "#86efac"
+        );
+
+      } catch (error) {
+        console.error("LinkFlash:", error);
+
+        let errorText =
+          error.message || "Ocurrió un error inesperado.";
+
+        if (
+          error instanceof TypeError ||
+          error.name === "SyntaxError"
+        ) {
+          errorText =
+            "No se pudo conectar con el servicio. " +
+            "Verifica tu conexión o intenta nuevamente.";
+        }
+
+        showMessage(errorText, "#fca5a5");
+
+      } finally {
+        button.disabled = false;
+        button.textContent = "✦ Acortar mi enlace";
+      }
+    });
+
+    // =====================================
+    // MOSTRAR MENSAJES
+    // =====================================
+
+    function showMessage(text, color) {
+      message.textContent = text;
+      message.style.color = color;
     }
-  } else {
-    try {
-      await navigator.clipboard.writeText(currentShortUrl);
-      message.style.color = "#c4b5fd";
-      message.textContent = "Enlace copiado. ¡Ya puedes compartirlo!";
-    } catch {
-      message.textContent = "Copia el enlace manualmente.";
-    }
-  }
-});
-</script>
+
+    // =====================================
+    // COPIAR ENLACE
+    // =====================================
+
+    copyBtn.addEventListener("click", async () => {
+      if (!currentShortUrl) return;
+
+      try {
+        await navigator.clipboard.writeText(currentShortUrl);
+
+        copyBtn.textContent = "✅ ¡Enlace copiado!";
+
+        setTimeout(() => {
+          copyBtn.textContent = "📋 Copiar enlace";
+        }, 2000);
+
+      } catch {
+        // Alternativa para navegadores sin Clipboard API
+        const temp = document.createElement("textarea");
+
+        temp.value = currentShortUrl;
+        document.body.appendChild(temp);
+        temp.select();
+
+        const copied = document.execCommand("copy");
+        temp.remove();
+
+        if (copied) {
+          copyBtn.textContent = "✅ ¡Enlace copiado!";
+        } else {
+          showMessage(
+            "Mantén presionado el enlace para copiarlo.",
+            "#fca5a5"
+          );
+        }
+      }
+    });
+
+    // =====================================
+    // COMPARTIR ENLACE
+    // =====================================
+
+    shareBtn.addEventListener("click", async () => {
+      if (!currentShortUrl) return;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: "Mi enlace de LinkFlash",
+            text: "Mira este enlace:",
+            url: currentShortUrl
+          });
+
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            showMessage(
+              "No se pudo compartir el enlace.",
+              "#fca5a5"
+            );
+          }
+        }
+
+      } else {
+        // Alternativa para navegadores sin compartir nativo
+        try {
+          await navigator.clipboard.writeText(currentShortUrl);
+
+          showMessage(
+            "Enlace copiado. ¡Ya puedes compartirlo!",
+            "#c4b5fd"
+          );
+
+        } catch {
+          showMessage(
+            "Mantén presionado el enlace para copiarlo.",
+            "#fca5a5"
+          );
+        }
+      }
+    });
+
+  </script>
 
 </body>
 </html>
