@@ -304,15 +304,13 @@
       currentShortUrl = "";
 
       try {
-        // Conectar con TU Worker de Cloudflare
+        // Conectar con el Worker de Cloudflare
         const api =
           WORKER_URL +
           "?url=" +
           encodeURIComponent(parsedUrl.href);
 
         const response = await fetch(api);
-
-        // Leer respuesta del Worker
         const data = await response.json();
 
         // Detectar errores HTTP o del servicio
@@ -324,14 +322,11 @@
           );
         }
 
-        // Validar enlace corto recibido
+        // Validar enlace corto recibido (Acepta cualquier dominio seguro devuelto por tu Worker)
         const shortUrl = new URL(data.shorturl);
 
-        if (
-          shortUrl.protocol !== "https:" ||
-          shortUrl.hostname !== "is.gd"
-        ) {
-          throw new Error("El servicio devolvió una URL inesperada.");
+        if (shortUrl.protocol !== "https:") {
+          throw new Error("El servicio devolvió una URL no segura.");
         }
 
         // Mostrar resultado
@@ -396,7 +391,6 @@
         }, 2000);
 
       } catch {
-        // Alternativa para navegadores sin Clipboard API
         const temp = document.createElement("textarea");
 
         temp.value = currentShortUrl;
@@ -442,7 +436,6 @@
         }
 
       } else {
-        // Alternativa para navegadores sin compartir nativo
         try {
           await navigator.clipboard.writeText(currentShortUrl);
 
